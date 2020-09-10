@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 import pickle
 
 app = Flask(__name__)
@@ -36,6 +36,22 @@ def predict():
     if output == 'No':
         return render_template('index.html', prediction_text=' {}'.format(output))
 
+@app.route('/api',methods=['POST'])
+def api():
+    int_features = [float(x) for x in request.form.values()]
+    final_features = [np.array(int_features)]
+    prediction = model_placement.predict(final_features)
+
+    out={'Not Placed':'No', 'Placed':'Yes'}
+
+    output=out[prediction[0]]
+    if output=='Yes':
+        salary = model_salary.predict(final_features)
+        salary=round(salary[0],-5)*12/100000
+        return jsonify(status=output,salary=salary)
+
+    if output == 'No':
+        return jsonify(status=output,salary=0)
 
 
 if __name__ == "__main__":
