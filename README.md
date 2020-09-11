@@ -8,4 +8,5 @@ This is a single page application, developed using HTML and Flask, can be run on
 [Link to the App](https://prognosis-app.herokuapp.com/)
 
 ## Snapshots
-![webapp1](https://drive.google.com/file/d/1jk26U9ZKTqMMeHkA9w5wVnN9o932cRVY/view?usp=sharing)
+![webapp1](https://github.com/Green-io/placement_webapp/blob/master/snapshot%20webapp/webapp_1.png)![webapp2](https://github.com/Green-io/placement_webapp/blob/master/snapshot%20webapp/webapp_2.png)
+![webapp3](https://github.com/Green-io/placement_webapp/blob/master/snapshot%20webapp/webapp_3.png)![webapp4](https://github.com/Green-io/placement_webapp/blob/master/snapshot%20webapp/webapp_4.png)
