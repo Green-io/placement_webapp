@@ -36,9 +36,11 @@ def predict():
     if output == 'No':
         return render_template('index.html', prediction_text=' {}'.format(output))
 
-@app.route('/api',methods=['POST'])
+@app.route('/api',methods=['GET'])
 def api():
-    int_features = [float(x) for x in request.form.values()]
+    dic=request.args.to_dict()
+    print(dic)
+    int_features = [float(x) for x in dic.values()]
     final_features = [np.array(int_features)]
     prediction = model_placement.predict(final_features)
 
