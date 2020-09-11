@@ -5,6 +5,6 @@ Prognosis is an **AI based Placement and Salary Predictor** tool that enables MB
 This is a single page application, developed using HTML and Flask, can be run on any mobile device to get the output instantaneously. It aids to bridge the gap between the recruiters and the candidates.
 
 ## Try it out
-[Link to the App](https://placement-app.herokuapp.com/)
+[Link to the App](https://prognosis-app.herokuapp.com/)
 
 ## Snapshots
