@@ -8,3 +8,4 @@ This is a single page application, developed using HTML and Flask, can be run on
 [Link to the App](https://prognosis-app.herokuapp.com/)
 
 ## Snapshots
+![webapp1](https://drive.google.com/file/d/1jk26U9ZKTqMMeHkA9w5wVnN9o932cRVY/view?usp=sharing)
