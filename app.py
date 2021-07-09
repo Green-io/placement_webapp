@@ -17,14 +17,12 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model_placement.predict(final_features)
 
-#     out={'Not Placed':'No', 'Placed':'Yes'}
+    output = prediction[0]
 
-   output=prediction[0]
-
-    if output=='Yes':
+    if output == 'Yes':
         salary = model_salary.predict(final_features)
-        salary=round(salary[0],-5)/10
-        return render_template('index.html', prediction_text=' {}'.format(output)+'     Approx. Salary: {}LPA'.format(salary))
+        salary = round(salary[0], -5) / 10
+        return render_template('index.html', prediction_text=' {}'.format(output)+'     Approx. Salary: {}LPA'.format(salary/100000))
 
     if output == 'No':
         return render_template('index.html', prediction_text=' {}'.format(output))
@@ -37,13 +35,14 @@ def api():
     final_features = [np.array(int_features)]
     prediction = model_placement.predict(final_features)
 
-   output=prediction[0]
+    # out={'Not Placed':'No', 'Placed':'Yes'}
+
+    output=prediction[0]
 
     if output=='Yes':
         salary = model_salary.predict(final_features)
         salary=round(salary[0],-5)/10
         return jsonify(status=output,salary=salary)
-
 
     if output == 'No':
         return jsonify(status=output,salary=0)
