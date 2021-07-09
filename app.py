@@ -17,12 +17,13 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model_placement.predict(final_features)
 
-    out={'Not Placed':'No', 'Placed':'Yes'}
+#     out={'Not Placed':'No', 'Placed':'Yes'}
 
-    output=out[prediction[0]]
+   output=prediction[0]
+
     if output=='Yes':
         salary = model_salary.predict(final_features)
-        salary=round(salary[0],-5)*12/100000
+        salary=round(salary[0],-5)/10
         return render_template('index.html', prediction_text=' {}'.format(output)+'     Approx. Salary: {}LPA'.format(salary))
 
     if output == 'No':
