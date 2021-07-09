@@ -6,14 +6,6 @@ app = Flask(__name__)
 model_placement = pickle.load(open('placement.pkl', 'rb'))
 model_salary=pickle.load(open('salary.pkl', 'rb'))
 
-#['ssc_p',
-# 'hsc_p',
-# 'degree_p',
-# 'etest_p',
-# 'mba_p',
-# 'gender_M',
-# 'degree_t_Sci&Tech',
-# 'workex_Yes']
 
 @app.route('/')
 def home():
@@ -44,13 +36,13 @@ def api():
     final_features = [np.array(int_features)]
     prediction = model_placement.predict(final_features)
 
-    out={'Not Placed':'No', 'Placed':'Yes'}
+   output=prediction[0]
 
-    output=out[prediction[0]]
     if output=='Yes':
         salary = model_salary.predict(final_features)
-        salary=round(salary[0],-5)*12/100000
+        salary=round(salary[0],-5)/10
         return jsonify(status=output,salary=salary)
+
 
     if output == 'No':
         return jsonify(status=output,salary=0)
